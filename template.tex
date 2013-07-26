@@ -1,0 +1,170 @@
+%%%%%%% This is a template file for the use of artcomp.cls
+
+%%%%%%
+%%	The underlying environment of artclcomp is scrcartcl 
+%%	from the bundle Koma-script
+%%	therefore the same options can be passed to artclcomp
+
+\documentclass[DIV=classic,a4paper]{artclcomp}
+
+%%%%%%
+%%	Personal head with minimum of usefull packages,
+%%	ntheorem environment and shortenings
+
+\input{head}
+
+%%%%%%
+%%	Package to fill the abstract with Latin non-sense.
+
+\usepackage{lipsum}
+
+
+
+\begin{document}
+
+%%%%%%  Title section
+%% Several footnotes to the title can be provided.
+%% the key is \tnoteref{somekey}
+%% after the title provide \tnotetext[somekey]{Some text as footnote}
+%% if no key then no footnote.
+
+\title{The Ultimate Approach to a New Concept.\tnoteref{t}}
+\tnotetext[t]{This paper was presented in blablablabla}
+
+
+%%%%%% Author section
+%%	Way to do it is \author[key1,key2,key3]{Name Firstname}
+%% where keys are corresponding to one of the optional entry
+%% address
+%% eMail
+%% myThanks
+%% The same key can be used for several authors (for instance for the common thanks or common address
+%% in which case it will be print once but reference to each of the corresponding author.
+
+\author[a,1,s]{Rolf Guntermaier}
+\author[a,2,t]{Giovani da Pintoresque}
+\author[b,3,s]{Marcel Duchamp}
+
+\address[a]{Great West University, far End street 6, 10064 Leduc, Europe}
+\address[b]{Middle North University, A3D4 street 8, 84353 Montrant-Ville, USA}
+
+\eMail[1]{rgunt@gw-university.edu.eu}
+\eMail[2]{gio@gw-university.edu.eu}
+\eMail[3]{MarcelDuchamp@mn-university.edu}
+
+\myThanks[s]{Funding: Great Bank of Tangtui}
+\myThanks[t]{Funding: Research Project OTGIRTNSA, Project X645DR-88}
+
+
+%%%%%%% Abstract Section
+%% Abstract as usual
+%% \keyWords as list of keywords (careful the W in keyWords is capitalised.
+%%
+
+\abstract{
+	 \lipsum[1]
+}
+\keyWords{Something Interesting, Risk Measures, Profoundly Irrelevant}
+
+
+%%%%%%%% Paper Infos (optional if not given they won't appear.
+%%	\ArXiV give the number of the arxiv reference, it provides the link
+%% \keyAMSClassification list of AMS Classification
+%% \keyJELClassification list of JELClassification
+%%	
+
+
+
+\ArXiV{1212.6732}
+\keyAMSClassification{83H54, 73D12}
+\keyJELClassification{5344, 6355}
+\maketitle
+
+\section{Introduction}
+\lipsum[2-5]
+
+\section{Some Math}
+Let $M, N:\tilde{\Omega}\times [0,T]\to \R$ be $(\tilde{\mathcal{F}}_t)$-adapted processes.
+The process $M$ is called \cadlag, \caglad~or \ladlag~if the paths of $M$ are  \cadlag, \caglad~or \ladlag~quasi-surely, respectively.
+Given a \ladlag~process, we denote by $M^-$ and $M^+$ its \caglad~and \cadlag~version respectively, that is
+\begin{gather*}
+	M^-_t:=\lim_{s\nearrow t}M_s,\quad \text{for }t \in ]0,T],\quad\text{and}\quad M^-_0:=M_0,\\
+	M^+_t:=\lim_{s\searrow t}M_s,\quad \text{for }t \in [0,T[,\quad\text{and}\quad M^+_T:=M_T,
+\end{gather*}
+outside the polar set where $M$ is not \ladlag.
+Two $(\tilde{\mathcal{F}}_t)$-adapted processes $M,N:\tilde{\Omega}\times [0,T]\to \R$ are modifications of each others, if $M_t=N_t$, for all $t \in [0,T]$.
+We say that $M$ is a \emph{supermartingale} or a \emph{strong supermartingale}, if $M(\theta)$ is a supermartingale or a strong supermartingale, for all $\theta \in \Theta$, respectively.
+See \cite[Appendix I]{Dellacherie1982} for a definition of strong supermartingales.
+
+Let us define the following sets of value and control processes:
+\begin{itemize}
+	\item $\mathcal{S}$ is the set of $(\mathcal{F}_t)$-adapted \ladlag~processes $Y:\Omega \times [0,T]\to \R$;
+	\item $\tilde{\mathcal{S}}$ is the set of \ladlag~processes $Y:\tilde{\Omega}\times [0,T]\to \R$, which have a modification $\hat Y$ satisfying $\hat Y_t \in C(\tilde{\mathcal{F}}_t)\cap L^1_b(\tilde{\mathcal{F}}_t)$, for all $t \in [0,T]$, and such that $Y(\theta)$ is optional, for all $\theta \in\Theta$.
+	\item For any $\theta \in \Theta$, let  $\mathcal{L}(\theta)$ be the set of $(\mathcal{F}_t)$-predictable processes $Z:\Omega \times [0,T]\to \R^d$ such that $P\left[\int_{0}^{T}\|Z_u \theta_u^{1/2}\|^2 du<\infty\right]=1$.
+	\item $\tilde{\mathcal{L}}$ is the set of $(\tilde{\mathcal{F}}_t)$-predictable processes $Z:\tilde{\Omega}\times [0,T]\to \R^d$ such that $Z(\theta)\in \mathcal{L}(\theta)$, for all $\theta \in \Theta$.
+\end{itemize}
+%A \emph{generator} is a jointly measurable function g from $\tilde \Omega \times [0, T ]\times \mathbb{R}\times \mathbb{R}^{1\times d}$ to $\mathbb{R}\cup  \{+\infty\}$ where $\tilde \Omega \times [0, T ]$ is endowed with the progressive $\sigma$-field.
+A \emph{generator} is a jointly measurable function g from $\tilde \Omega \times [0, T ]\times \mathbb{R}\times \mathbb{R}^{1\times d}$ to $\mathbb{R}\cup  \{+\infty\}$ such that the mapping $(s,\omega, \theta)\mapsto g_s(\omega,\theta,y,z):([0,t]\times \tilde \Omega,\mathcal{B}([0,t])\otimes \tilde{\mathcal{F}}_t)\rightarrow (\mathbb{R}^d,\mathcal{B}(\mathbb{R}^d))$ is measurable, for each $t$, for all $(y,z)\in\mathbb{R}^{d+1}$.
+We say that a generator $g$ is
+\begin{enumerate}[label=\textsc{(Pos)},leftmargin=40pt]
+	\item \label{cond00} positive, if $g\left(\theta, y,z \right)\geq 0$;
+\end{enumerate}
+\begin{enumerate}[label=\textsc{(Lsc)},leftmargin=40pt]
+	\item \label{condlsc} if $(y,z)\mapsto g(\theta,y,z)$ is lower semicontinuous;
+\end{enumerate}
+\begin{enumerate}[label=\textsc{(Mon)},leftmargin=40pt]
+	\item \label{cond03} increasing, if $g\left(\theta,y,z  \right)\geq g\left(\theta, y^\prime ,z\right)$, whenever $y\geq y^\prime$; 
+\end{enumerate}
+\begin{enumerate}[label=\textsc{(Mon${}^\prime$)},leftmargin=40pt]
+	\item \label{cond02} decreasing, if $g\left(\theta,y,z  \right)\leq g\left( \theta, y^\prime ,z\right)$, whenever $y\geq y^\prime$; 
+\end{enumerate}
+\begin{enumerate}[label=\textsc{(Con)},leftmargin=40pt]
+	\item \label{cond01} convex, if $g\left(\theta,y,\lambda z+\left( 1-\lambda \right)z^\prime \right)\leq \lambda g\left( \theta, y,z \right)+\left( 1-\lambda \right)g\left( \theta, y,z^\prime \right)$, for all $\lambda \in \left( 0,1 \right)$;
+\end{enumerate}
+\begin{enumerate}[label=\textsc{(Nor)},leftmargin=40pt]
+	\item \label{cond04} normalized, if $g\left(\theta,y,0 \right)=0$;
+\end{enumerate}
+$P\otimes dt$-almost surely, for all $y,y'\in\R$, all $z,z^\prime  \in \R^{1 \times d}$ and all $\theta \in \Theta$.
+
+A pair $(Y,Z)\in\tilde{{\cal S}}\times \tilde{\mathcal{L}}$ is said to be a \emph{supersolution} of the BSDE with generator $g$ and terminal condition $\xi\in L^0(\tilde{\cal F}_T)$, if
+\begin{equation}\label{eq:central:ineq:rob}
+	Y_\sigma(\theta)-\int_\sigma^\tau g_{u}(\theta,Y_u(\theta),Z_u(\theta))du+\int_\sigma^\tau Z_{u}(\theta) d\tilde{W}_{u}(\theta) \geq Y_\tau(\theta)\quad\text{and} \quad Y_T(\theta)\geq\xi(\theta),
+\end{equation}
+for all $\sigma,\tau \in \mathcal{T}$, with $\sigma\leq \tau$, and for all $\theta \in \Theta$.
+For such a supersolution $(Y,Z)$, we call $Y$ the \emph{value process} and $Z$ its \emph{control process}.
+In order to exclude doubling strategies we only consider control processes, which are admissible, that is $\int Z(\theta)d\tilde W(\theta)$ is a supermartingale, for all $\theta\in\Theta$.
+We denote the set of such supersolutions by
+\begin{equation}\label{set:rob:A:B}
+	\mathcal{A}(\xi,g)= \set{ (Y,Z) \in\tilde{\mathcal{S}}\times \tilde{\mathcal{L}} : Z \text{ is admissible and } \eqref{eq:central:ineq:rob} \text{ holds}}.
+\end{equation}
+A pair $(Y,Z)$ is said to be a \emph{minimal supersolution}, if $(Y,Z)\in \mathcal{A}(\xi,g)$, and if for any other supersolution $(Y',Z')\in\mathcal{A}(\xi,g)$, holds $Y_t \leq Y^{\prime}_t$, for all $t\in[0,T]$. 
+The natural candidate for the value process of a minimal supersolution is the infimum, that is
+\begin{equation}
+	\hat{\mathcal{E}}_t(\xi):=\hat{\mathcal{E}}^{g}_t(\xi):=\inf \set{Y_t : \left( Y,Z \right)\in \mathcal{A}(\xi,g)}, \quad t \in \left[ 0,T \right].
+	\label{eq:defi:phi:rob1:B}
+\end{equation}
+The goal is to find a modification $\mathcal{E}(\xi)$ of $\hat{\mathcal{E}}(\xi)$ that belongs to $\tilde{\mathcal{S}}$ and some admissible process $Z$ in $\tilde{\mathcal{L}}$ such that $(\mathcal{E}(\xi), Z)$ fulfills \eqref{eq:central:ineq:rob}, that is $(\mathcal{E}(\xi),Z)$ is a minimal supersolution.
+
+
+\section{Conclusion}
+\lipsum[5-8]
+
+
+%% I you prefer (recommended) an input organisation of your article
+%\input{introduction}
+%\input{chap01}
+%\input{chap02}
+%\input{chap03}
+%\input{chap04}
+%\input{chap05}
+
+%% The bibliography is as usual.
+%% Just choose the style that you like, it should be natbib compatible.
+\citet{foellmer02}\citet{artzner01}\citep{Dellacherie1978,DHK1101}
+\bibliographystyle{econometrica}
+%\bibliographystyle{abbrvnat}
+%%\bibliographystyle{./bibfiles/plaindin}
+%%\bibliographystyle{./bibfiles/unsrtdin}
+\bibliography{bib}
+
+\end{document} 
