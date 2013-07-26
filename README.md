@@ -1,11 +1,7 @@
 #About
+"artclcomp" is an alternative "custom" LaTeX article class which is more compressed in terms of header, while allowing for more information.
 
-artclcomp is a LaTeX article class.
-It is basically more compressed in terms of header, while allowing for more informations (see template.pdf for an example).
-
-Aside from the standard fields for a header (title, abstract, date, author), some other (optional) fields are possible (email, keywords, ArXiV, AMs, JEL, Funding, etc.)
-To spare space, redundant informations are gathered (similar addresses, fundings or thanks for two are more authors are printed only once).
-The bibliography is slightly more compressed too. 
+Aside from the standard fields for a header (title, abstract, date, author), some other (optional) fields are possible (email, keywords, ArXiV, AMs, JEL, Funding, etc.). To spare space, redundant information are gathered (similar addresses, funding or thanks for two are more authors are printed only once). The bibliography is slightly more compressed too.
 
 #Howto
 Download the class artclcomp.cls in your project directory or to a place where it can be called.
